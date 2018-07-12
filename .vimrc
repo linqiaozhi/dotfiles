@@ -1,3 +1,5 @@
+" ln -sf dotfiles/.vimrc ~/.vimrc
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -40,3 +42,12 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+
+
+" :map to check maps
+" Do : then <ctr-V> and then the keys you want to check it
+" :Sline can be run using `\ls` which we remapped to `\r` or `Option+enter`
+" `Snew` and then `Sbind`
+"
+" `:GundoList`
