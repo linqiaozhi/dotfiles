@@ -24,10 +24,19 @@ nnoremap j gj
 nnoremap k gk
 
 
-"mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+if empty(glob('~/.vim/autoload/pathogen.vim'))
+	silent !mkdir -p  ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+endif
+
 execute pathogen#infect()
 
 
+if empty(glob('~/.vim/bundle/gundo'))
+	silent !git clone http://github.com/sjl/gundo.vim.git ~/.vim/bundle/gundo
+endif
 " https://sjl.bitbucket.io/gundo.vim/#installation
-" git clone http://github.com/sjl/gundo.vim.git ~/.vim/bundle/gundo
+
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
