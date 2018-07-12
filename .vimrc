@@ -60,3 +60,4 @@ set t_vp=
 autocmd VimEnter * set vb t_vb=
 
 set termwinscroll=40000
+set backspace=2 "This was required on bd2k or you couldn't backspace up a line, apparently
