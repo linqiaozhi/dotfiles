@@ -55,3 +55,8 @@ endif
 " https://sjl.bitbucket.io/gundo.vim/#installation
 
 
+set visualbell
+set t_vp=
+autocmd VimEnter * set vb t_vb=
+
+set termwinscroll=40000
