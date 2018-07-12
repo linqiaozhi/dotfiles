@@ -29,8 +29,10 @@ Plug 'gu-fan/simpleterm.vim'
 " Initialize plugin system
 call plug#end()
 
-nmap \r *  :Sline<CR>
-vmap  \r * :Sline<CR>     <Space>
+nnor <Leader>c :Sline<CR>
+vnor <Leader>c :Sline<CR>
+imap <Leader>c <Esc>:Sline<CR>a
+:imap jk <Esc>
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
@@ -51,11 +53,5 @@ if empty(glob('~/.vim/bundle/gundo'))
 	silent !git clone http://github.com/sjl/gundo.vim.git ~/.vim/bundle/gundo
 endif
 " https://sjl.bitbucket.io/gundo.vim/#installation
-
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
-
 
 
