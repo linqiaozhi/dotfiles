@@ -1,4 +1,18 @@
-" ln -sf dotfiles/.vimrc ~/.vimrc
+" ln -sf ~/dotfiles/.vimrc ~/.vimrc
+" To install Vim 8 on Ubuntu
+" sudo add-apt-repository ppa:jonathonf/vim
+" sudo apt update
+" sudo apt-get install vim
+"
+"
+" :map to check maps
+" Do : then <ctr-V> and then the keys you want to check it
+"
+"
+" :Sline can be run using `\ls` which we remapped to `\r` or `Option+enter`
+" `Snew` and then `Sbind`
+"
+" `:GundoList`
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -45,9 +59,3 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 
 
-" :map to check maps
-" Do : then <ctr-V> and then the keys you want to check it
-" :Sline can be run using `\ls` which we remapped to `\r` or `Option+enter`
-" `Snew` and then `Sbind`
-"
-" `:GundoList`
