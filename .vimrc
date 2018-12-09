@@ -49,9 +49,9 @@ endif
 execute pathogen#infect()
 
 
-if empty(glob('~/.vim/bundle/gundo'))
-	silent !git clone http://github.com/sjl/gundo.vim.git ~/.vim/bundle/gundo
-endif
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
 " https://sjl.bitbucket.io/gundo.vim/#installation
 
 
@@ -61,3 +61,16 @@ autocmd VimEnter * set vb t_vb=
 
 set termwinscroll=40000
 set backspace=2 "This was required on bd2k or you couldn't backspace up a line, apparently
+
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab "Did this so that when using matlab it won't think I'm trying to autocomplete by sending the tabs
+hi clear texItalStyle
+hi clear texBoldStyle
+
+" Makes escape not have a delay
+set timeoutlen=1000 ttimeoutlen=0
+
+map <C-p> :w<CR>:!pdflatex %<CR>
+nmap \v vip \c  `>
+imap \v <Esc>vip \c `.
+
+
