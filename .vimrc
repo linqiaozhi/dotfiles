@@ -71,7 +71,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 map <C-p> :w<CR>:!pdflatex %<CR>
 map <C-t> :w<CR>1gt:!pdflatex %<CR>\tl
-command Bib !pdflatex %; bibtex %; pdflatex %; pdflatex %<CR>
+command Bib !pdflatex %:r; bibtex %:r; pdflatex %:r; pdflatex %:r<CR>
 nmap \v vip \c  `>
 imap \v <Esc>vip \c `.
 
