@@ -76,6 +76,7 @@ nmap \v vip \c  `>
 imap \v <Esc>vip \c `.
 
 map <C-m> :w<CR>:!./compile<CR>
+map <C-n> :w<CR><C-w>l<Up><CR><C-w>w                  
 set tabline=%!MyTabLine()  " custom tab pages line
 function! MyTabLine()
         let s = '' " complete tabline goes here
