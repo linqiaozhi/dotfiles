@@ -25,6 +25,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'gu-fan/simpleterm.vim'
+Plug 'lervag/vimtex'
+
 
 " Initialize plugin system
 call plug#end()
@@ -75,7 +77,7 @@ command Bib !pdflatex %:r; bibtex %:r; pdflatex %:r; pdflatex %:r<CR>
 nmap \v vip \c  `>
 imap \v <Esc>vip \c `.
 
-map <C-m> :w<CR>:!./compile<CR>
+" map <C-m> :w<CR>:!./compile<CR>
 map <C-n> :w<CR><C-w>l<Up><CR><C-w>w                  
 set tabline=%!MyTabLine()  " custom tab pages line
 function! MyTabLine()
@@ -154,3 +156,15 @@ if !exists('g:lasttab')
 endif
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+
+
+" Vimtex
+let g:vimtex_fold_enabled = 0
+" let g:vimtex_view_method  = 'skim'
+" let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+" let g:vimtex_view_general_options = '-r @line @pdf @tex'
+" map ,s :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>
+"
+"
+autocmd FileType plaintex map <buffer> \c <Nop>
+
