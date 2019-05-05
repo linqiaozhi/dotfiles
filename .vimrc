@@ -73,9 +73,14 @@ set timeoutlen=1000 ttimeoutlen=0
 
 map <C-p> :w<CR>:!pdflatex %<CR>
 map <C-t> :w<CR>1gt:!pdflatex %<CR>\tl
-command Bib !pdflatex %:r; bibtex %:r; pdflatex %:r; pdflatex %:r<CR>
+command! Bib !pdflatex %:r; bibtex %:r; pdflatex %:r; pdflatex %:r<CR>
 nmap \v vip \c  `>
 imap \v <Esc>vip \c `.
+
+" Disable the `run command' when in a tex file, otherwise typing \cite is
+" really annoying
+autocmd FileType tex iunmap  \c
+autocmd FileType tex iunmap  \v
 
 " map <C-m> :w<CR>:!./compile<CR>
 map <C-n> :w<CR><C-w>l<Up><CR><C-w>w                  
@@ -165,6 +170,5 @@ let g:vimtex_fold_enabled = 0
 " let g:vimtex_view_general_options = '-r @line @pdf @tex'
 " map ,s :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>
 "
-"
-autocmd FileType plaintex map <buffer> \c <Nop>
+
 
