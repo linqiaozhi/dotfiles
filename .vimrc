@@ -24,7 +24,7 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'gu-fan/simpleterm.vim'
+Plug 'linqiaozhi/simpleterm.vim'
 Plug 'lervag/vimtex'
 
 
