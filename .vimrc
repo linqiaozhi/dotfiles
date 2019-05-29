@@ -26,6 +26,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'linqiaozhi/simpleterm.vim'
 Plug 'lervag/vimtex'
+Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
 
 
 " Initialize plugin system
@@ -47,6 +49,7 @@ nnoremap k gk
 if empty(glob('~/.vim/autoload/pathogen.vim'))
 	silent !mkdir -p  ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 endif
+
 
 execute pathogen#infect()
 
@@ -170,5 +173,6 @@ let g:vimtex_fold_enabled = 0
 " let g:vimtex_view_general_options = '-r @line @pdf @tex'
 " map ,s :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>
 "
+
 
 
