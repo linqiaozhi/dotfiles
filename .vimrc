@@ -80,10 +80,6 @@ command! Bib !pdflatex %:r; bibtex %:r; pdflatex %:r; pdflatex %:r<CR>
 nmap \v vip \c  `>
 imap \v <Esc>vip \c `.
 
-" Disable the `run command' when in a tex file, otherwise typing \cite is
-" really annoying
-autocmd FileType tex iunmap  \c
-autocmd FileType tex iunmap  \v
 
 " map <C-m> :w<CR>:!./compile<CR>
 map <C-n> :w<CR><C-w>l<Up><CR><C-w>w                  
@@ -176,3 +172,17 @@ let g:vimtex_fold_enabled = 0
 
 
 
+" Search for the ... arguments separated with whitespace (if no '!'),
+" or with non-word characters (if '!' added to command).
+function! SearchMultiLine(bang, ...)
+  if a:0 > 0
+    let sep = (a:bang) ? '\_W\+' : '\_s\+'
+    let @/ = join(a:000, sep)
+  endif
+endfunction
+command! -bang -nargs=* -complete=tag S call SearchMultiLine(<bang>0, <f-args>)|normal! /<C-R>/<CR>
+
+" Disable the `run command' when in a tex file, otherwise typing \cite is
+" really annoying
+autocmd FileType tex iunmap  \c
+autocmd FileType tex iunmap  \v
