@@ -32,6 +32,11 @@ Plug 'godlygeek/tabular'
 
 " Initialize plugin system
 call plug#end()
+nnoremap <silent> <leader>a :ArgWrap<CR>
+
+" Wrap on pipe symbol https://vi.stackexchange.com/questions/24960/reformat-code-breaking-lines-and-aligning-on-a-character/25004?noredirect=1#comment43684_25004
+nnoremap <Leader>p :s/%>%/&\r/g<CR>V``j=gv>>
+
 
 nnor <Leader>c :Sline<CR>
 vnor <Leader>c :Sline<CR>
@@ -50,6 +55,9 @@ if empty(glob('~/.vim/autoload/pathogen.vim'))
 	silent !mkdir -p  ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 endif
 
+if empty(glob('~/.vim/autoload/vim-argwrap'))
+    silent !git clone https://github.com/FooSoft/vim-argwrap ~/.vim/bundle/vim-argwrap
+endif
 
 execute pathogen#infect()
 
