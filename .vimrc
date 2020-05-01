@@ -194,3 +194,5 @@ command! -bang -nargs=* -complete=tag S call SearchMultiLine(<bang>0, <f-args>)|
 " really annoying
 autocmd FileType tex iunmap  \c
 autocmd FileType tex iunmap  \v
+
+set nowrapscan
