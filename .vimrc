@@ -28,6 +28,7 @@ Plug 'linqiaozhi/simpleterm.vim'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
+Plug 'jalvesaq/Nvim-R'
 
 
 " Initialize plugin system
@@ -55,7 +56,8 @@ if empty(glob('~/.vim/autoload/pathogen.vim'))
 	silent !mkdir -p  ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 endif
 
-if empty(glob('~/.vim/autoload/vim-argwrap'))
+if empty(glob('~/.vim/bundle/vim-argwrap'))
+    
     silent !git clone https://github.com/FooSoft/vim-argwrap ~/.vim/bundle/vim-argwrap
 endif
 
@@ -194,5 +196,8 @@ command! -bang -nargs=* -complete=tag S call SearchMultiLine(<bang>0, <f-args>)|
 " really annoying
 autocmd FileType tex iunmap  \c
 autocmd FileType tex iunmap  \v
+
+autocmd FileType r unmap  \c
+autocmd FileType r unmap  \v
 
 set nowrapscan
