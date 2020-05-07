@@ -210,3 +210,6 @@ let R_assign = 2
 
 autocmd FileType r iabbrev cblc ################################<CR># <CR>################################<ESC>kk a
 autocmd FileType r iabbrev <silent> tbl table(, useNA="ifany")<ESC>F,i
+
+" For use after having scrolled up in the terminal below
+map <F3> <c-w>ja<c-w>k
