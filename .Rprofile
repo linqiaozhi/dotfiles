@@ -1,4 +1,5 @@
-options(prompt="R> ", error=traceback)
+#options(prompt="R> ", error=traceback)
+options(prompt="R> ")
 local({
     r = getOption("repos")
     r["CRAN"] = "https://cran.rstudio.com/"

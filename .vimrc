@@ -201,3 +201,12 @@ autocmd FileType r unmap  \c
 autocmd FileType r unmap  \v
 
 set nowrapscan
+
+
+imap <LocalLeader>l <Esc>:call SendLineToR("stay")<CR> i
+imap <LocalLeader>d <Esc>:call SendLineToR("down")<CR> 
+let R_assign = 2
+
+
+autocmd FileType r iabbrev cblc ################################<CR># <CR>################################<ESC>kk a
+autocmd FileType r iabbrev <silent> tbl table(, useNA="ifany")<ESC>F,i
