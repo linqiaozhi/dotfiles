@@ -176,3 +176,4 @@ let g:vimtex_fold_enabled = 0
 
 
 map <F3> <c-w>la<c-w>h
+map <F4> <c-w>l<c-c><c-w>h
