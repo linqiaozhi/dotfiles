@@ -33,23 +33,9 @@ Plug 'jalvesaq/Nvim-R'
 
 " Initialize plugin system
 call plug#end()
-nnoremap <silent> <leader>a :ArgWrap<CR>
-
-" Wrap on pipe symbol https://vi.stackexchange.com/questions/24960/reformat-code-breaking-lines-and-aligning-on-a-character/25004?noredirect=1#comment43684_25004
-nnoremap <Leader>p :s/%>%/&\r/g<CR>V``j=gv>>
-
-
-nnor <Leader>c :Sline<CR>
-vnor <Leader>c :Sline<CR>
-imap <Leader>c <Esc>:Sline<CR>a
-:imap jk <Esc>
-
 " Blink cursor on error instead of beeping (grr)
 set visualbell
 
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
 
 
 if empty(glob('~/.vim/autoload/pathogen.vim'))
@@ -84,15 +70,6 @@ hi clear texBoldStyle
 " Makes escape not have a delay
 set timeoutlen=1000 ttimeoutlen=0
 
-map <C-p> :w<CR>:!pdflatex %<CR>
-map <C-t> :w<CR>1gt:!pdflatex %<CR>\tl
-command! Bib !pdflatex %:r; bibtex %:r; pdflatex %:r; pdflatex %:r<CR>
-nmap \v vip \c  `>
-imap \v <Esc>vip \c `.
-
-
-" map <C-m> :w<CR>:!./compile<CR>
-map <C-n> :w<CR><C-w>l<Up><CR><C-w>w                  
 set tabline=%!MyTabLine()  " custom tab pages line
 function! MyTabLine()
         let s = '' " complete tabline goes here
@@ -192,13 +169,55 @@ function! SearchMultiLine(bang, ...)
 endfunction
 command! -bang -nargs=* -complete=tag S call SearchMultiLine(<bang>0, <f-args>)|normal! /<C-R>/<CR>
 
+
+
+" MAPPINGS
+"
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <silent> <leader>a :ArgWrap<CR>
+" Wrap on pipe symbol https://vi.stackexchange.com/questions/24960/reformat-code-breaking-lines-and-aligning-on-a-character/25004?noredirect=1#comment43684_25004
+nnoremap <Leader>p :s/%>%/&\r/g<CR>V``j=gv>>
+
+
+" nnor <Leader>c :Sline<CR>
+" vnor <Leader>c :Sline<CR>
+" imap <Leader>c <Esc>:Sline<CR>a
+" :imap jk <Esc>
+
+
+
+
+
+map <C-p> :w<CR>:!pdflatex %<CR>
+map <C-t> :w<CR>1gt:!pdflatex %<CR>\tl
+command! Bib !pdflatex %:r; bibtex %:r; pdflatex %:r; pdflatex %:r<CR>
+nmap \v vip \c  `>
+imap \v <Esc>vip \c `.
+
+
+" map <C-m> :w<CR>:!./compile<CR>
+map <C-n> :w<CR><C-w>l<Up><CR><C-w>w                  
+
+
+
 " Disable the `run command' when in a tex file, otherwise typing \cite is
 " really annoying
-autocmd FileType tex iunmap  \c
-autocmd FileType tex iunmap  \v
+" autocmd FileType tex silent! iunmap <buffer> \c
+" autocmd FileType tex silent! iunmap <buffer> \v
 
-autocmd FileType r unmap  \c
-autocmd FileType r unmap  \v
+" autocmd FileType r iunmap <buffer> <Leader>c
+" autocmd FileType r iunmap <buffer> <Leader>v
+
+autocmd FileType python nnor <buffer> <Leader>l :Sline<CR>
+autocmd FileType python vnor <buffer> <Leader>l :Sline<CR>
+autocmd FileType python imap <buffer> <Leader>l <Esc>:Sline<CR>a
+autocmd FileType python nnor <buffer> <Leader>d :Sline<CR>j
+autocmd FileType python vnor <buffer> <Leader>d :Sline<CR>j
+autocmd FileType python nmap <buffer> \v <Esc>vip \l <C-w>l<CR><C-w>h `>
+:imap jk <Esc>
 
 set nowrapscan
 
@@ -214,3 +233,6 @@ autocmd FileType r iabbrev <silent> tbl table(, useNA="ifany")<ESC>F,i
 " For use after having scrolled up in the terminal to the right
 map <F3> <c-w>la<c-w>h
 map <F4> <c-w>l<c-c><c-w>h
+
+imap \_ <Esc>v^yA <- <Esc>pa %>% 
+imap >> %>%
