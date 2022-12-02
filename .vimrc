@@ -229,6 +229,7 @@ let R_assign = 2
 
 autocmd FileType r iabbrev cblc ################################<CR># <CR>################################<ESC>kk a
 autocmd FileType r iabbrev <silent> tbl table(, useNA="ifany")<ESC>F,i
+autocmd FileType r iabbrev <silent> pout %>% print(n=, width =Inf)<ESC>F,i
 
 " For use after having scrolled up in the terminal to the right
 map <F3> <c-w>la<c-w>h
@@ -236,3 +237,19 @@ map <F4> <c-w>l<c-c><c-w>h
 
 imap \_ <Esc>v^yA <- <Esc>pa %>% 
 imap >> %>%
+
+
+"Print upper R corner
+nmap <LocalLeader>gp :RSend <c-r>=expand("<cword>")<cr><cr>
+nmap <LocalLeader>gc :RSend <c-r>=expand("<cword>")<cr>[1:5,1:5]<cr>
+nmap <LocalLeader>gf :RSend <c-r>=expand("<cword>")<cr>[1:15]<cr>
+nmap <LocalLeader>gh :RSend head(<c-r>=expand("<cword>")<cr>)<cr>
+nmap <LocalLeader>gs :RSend str(<c-r>=expand("<cword>")<cr>)<cr>
+nmap <LocalLeader>gd :RSend dim(<c-r>=expand("<cword>")<cr>)<cr>
+nmap <LocalLeader>gl :RSend length(<c-r>=expand("<cword>")<cr>)<cr>
+nmap <LocalLeader>go :RSend <c-r>=expand("<cword>")<cr>%>% print(n=20, width = Inf)<cr>
+nmap <LocalLeader>gi :RSend install.packages('<c-r>=expand("<cword>")<cr>')<cr>
+
+" This will switch the arguments. But strangely, I cannot figure out how to
+" save it
+" let @q = 'vi)o€ýavt,dvi)€ýaa,"€ýavi)€ýaT,vi)o€ýax'
