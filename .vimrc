@@ -29,6 +29,7 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'jalvesaq/Nvim-R'
+Plug 'tpope/vim-commentary'
 
 
 " Initialize plugin system
@@ -244,6 +245,7 @@ nmap <LocalLeader>gp :RSend <c-r>=expand("<cword>")<cr><cr>
 nmap <LocalLeader>gc :RSend <c-r>=expand("<cword>")<cr>[1:5,1:5]<cr>
 nmap <LocalLeader>gf :RSend <c-r>=expand("<cword>")<cr>[1:15]<cr>
 nmap <LocalLeader>gh :RSend head(<c-r>=expand("<cword>")<cr>)<cr>
+nmap <LocalLeader>gg :RSend glimpse(<c-r>=expand("<cword>")<cr>)<cr>
 nmap <LocalLeader>gs :RSend str(<c-r>=expand("<cword>")<cr>)<cr>
 nmap <LocalLeader>gd :RSend dim(<c-r>=expand("<cword>")<cr>)<cr>
 nmap <LocalLeader>gl :RSend length(<c-r>=expand("<cword>")<cr>)<cr>
@@ -252,4 +254,4 @@ nmap <LocalLeader>gi :RSend install.packages('<c-r>=expand("<cword>")<cr>')<cr>
 
 " This will switch the arguments. But strangely, I cannot figure out how to
 " save it
-" let @q = 'vi)o€ýavt,dvi)€ýaa,"€ýavi)€ýaT,vi)o€ýax'
+" let @q = 'vi)oï¿½ï¿½avt,dvi)ï¿½ï¿½aa,"ï¿½ï¿½avi)ï¿½ï¿½aT,vi)oï¿½ï¿½ax'
